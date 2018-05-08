@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_prescription: 1
+  id_product: 1
+  dose_per_ha: 1.5
+
+two:
+  id_prescription: 1
+  id_product: 1
+  dose_per_ha: 1.5

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_product: 1
+  id_colture: 1
+  max_gr_ha: 1.5
+
+two:
+  id_product: 1
+  id_colture: 1
+  max_gr_ha: 1.5

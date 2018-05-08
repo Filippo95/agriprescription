@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to lands_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Indietro
+  <% end %>
+  <%= link_to edit_land_path(@land), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Modifica
+  <% end %>
+  <h1>Visualizza terra</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Coltura:</dt>
+  <dd><%= @coltures.where(id: @land.id_colture).first.name %></dd>
+
+  <dt>Estensione (Ha):</dt>
+  <dd><%= @land.ha %></dd>
+
+  <dt>Azienda: </dt>
+  <dd><%= @companies.where(id: @land.id_company).first.name %></dd>
+
+</dl>

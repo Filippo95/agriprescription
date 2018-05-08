@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to max_doses_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Indietro
+  <% end %>
+  <%= link_to edit_max_dose_path(@max_dose), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Modifica
+  <% end %>
+  <h1>Visualizza Dose Massima</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Prodotto:</dt>
+  <dd><%= @products.where(id: @max_dose.id_product).first.nome %></dd>
+
+  <dt>Coltura:</dt>
+  <dd><%= @coltures.where(id: @max_dose.id_colture).first.name %></dd>
+
+  <dt>Max gr per Ha:</dt>
+  <dd><%= @max_dose.max_gr_ha %></dd>
+
+</dl>

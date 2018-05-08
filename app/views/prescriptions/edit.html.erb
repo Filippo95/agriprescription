@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to prescriptions_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Indietro
+  <% end %>
+  <%= link_to @prescription, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Visualizza
+  <% end %>
+  <h1>MOdifica Ricetta</h1>
+</div>
+
+<%= render 'form' %>

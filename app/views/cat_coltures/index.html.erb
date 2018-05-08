@@ -1,0 +1,36 @@
+<div class="page-header">
+  <%= link_to new_cat_colture_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Nuova Categoria
+  <% end %>
+  <h1>Categorie Colture</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover"  id="table">
+    <thead>
+      <tr>
+            <th>Nome</th>
+            <th>Padre</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @cat_coltures) do |cat_colture| %>
+            <td><%= cat_colture.name %></td>
+            <td><%= @cat_colture.where(id: cat_colture.id_parent).first.name %></td>
+            <td><%= link_to 'Visualizza', cat_colture %></td>
+        <td><%= link_to 'Modifica', edit_cat_colture_path(cat_colture) %></td>
+        <td><%= link_to 'Elimina', cat_colture, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<script>
+  $('#table').DataTable({
+
+});
+</script>

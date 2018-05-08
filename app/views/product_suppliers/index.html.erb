@@ -1,0 +1,36 @@
+<div class="page-header">
+  <%= link_to new_product_supplier_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Product supplier
+  <% end %>
+  <h1>Prodotto Fornitore</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover" id="table">
+    <thead>
+      <tr>
+            <th>Prodotto</th>
+            <th>Fornitore</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @product_suppliers) do |product_supplier| %>
+            <td><%= @products.where(id: product_supplier.id_product).first.nome %></td>
+            <td><%= @suppliers.where(id: product_supplier.id_supplier).first.name %></td>
+            <td><%= link_to 'Show', product_supplier %></td>
+        <td><%= link_to 'Edit', edit_product_supplier_path(product_supplier) %></td>
+        <td><%= link_to 'Destroy', product_supplier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<script>
+  $('#table').DataTable({
+
+});
+</script>

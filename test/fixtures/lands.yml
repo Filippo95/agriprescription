@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_colture: 1
+  ha: 1.5
+  id_company: 1
+
+two:
+  id_colture: 1
+  ha: 1.5
+  id_company: 1

@@ -1,0 +1,40 @@
+<div class="page-header">
+  <%= link_to new_supplier_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Nuovo Fornitore
+  <% end %>
+  <h1>Fornitori</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover" id="table">
+    <thead>
+      <tr>
+            <th>Ragione Sociale</th>
+            <th>Indirizzo</th>
+            <th>Partita IVA</th>
+            <th>Codice Fiscale</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @suppliers) do |supplier| %>
+            <td><%= supplier.name %></td>
+            <td><%= supplier.address %></td>
+            <td><%= supplier.piva %></td>
+            <td><%= supplier.cf %></td>
+            <td><%= link_to 'Visualizza', supplier %></td>
+        <td><%= link_to 'Modifica', edit_supplier_path(supplier) %></td>
+        <td><%= link_to 'Elimina', supplier, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<script>
+  $('#table').DataTable({
+
+});
+</script>

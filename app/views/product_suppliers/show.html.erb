@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to product_suppliers_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Indietro
+  <% end %>
+  <%= link_to edit_product_supplier_path(@product_supplier), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Modifica
+  <% end %>
+  <h1>Visualizza Prodotto Fornitore</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Prodotto:</dt>
+  <dd><%= @products.where(id: @product_supplier.id_product).first.nome %></dd>
+
+  <dt>Fornitore:</dt>
+  <dd><%= @suppliers.where(id: @product_supplier.id_supplier).first.name %></dd>
+
+</dl>

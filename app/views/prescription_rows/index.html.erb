@@ -1,0 +1,38 @@
+<div class="page-header">
+  <%= link_to new_prescription_row_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Prescription row
+  <% end %>
+  <h1>Listing prescription_rows</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover" id="table">
+    <thead>
+      <tr>
+            <th>Id prescription</th>
+            <th>Id product</th>
+            <th>Dose per ha</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @prescription_rows) do |prescription_row| %>
+            <td><%= prescription_row.id_prescription %></td>
+            <td><%= prescription_row.id_product %></td>
+            <td><%= prescription_row.dose_per_ha %></td>
+            <td><%= link_to 'Show', prescription_row %></td>
+        <td><%= link_to 'Edit', edit_prescription_row_path(prescription_row) %></td>
+        <td><%= link_to 'Destroy', prescription_row, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<script>
+  $('#table').DataTable({
+
+});
+</script>

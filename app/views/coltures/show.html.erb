@@ -1,0 +1,20 @@
+<div class="page-header">
+  <%= link_to coltures_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Indietro
+  <% end %>
+  <%= link_to edit_colture_path(@colture), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Modifica
+  <% end %>
+  <h1>Visualizza Coltura </h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Nome:</dt>
+  <dd><%= @colture.name %></dd>
+
+  <dt>Categoria:</dt>
+  <dd><%= @categories.where(id: @colture.id_cat).first.name %></dd>
+
+</dl>

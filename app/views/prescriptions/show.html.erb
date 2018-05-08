@@ -1,0 +1,98 @@
+<div class="page-header">
+   <%= link_to edit_prescription_path(@prescription), class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-cloud-download"></span>
+    PDF
+  <% end %>
+   <%= link_to edit_prescription_path(@prescription), class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-envelope "></span>
+    Mail
+  <% end %>
+  <%= link_to prescriptions_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Indietro
+  <% end %>
+  <%= link_to edit_prescription_path(@prescription), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Modifica
+  <% end %>
+  
+  <h1>Visualizza Ricetta </h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Date:</dt>
+  <dd><%= @prescription.date %></dd>
+
+  <dt>Azienda:</dt>
+  <dd><%=@companies.where(id: @prescription.id_company).first.name %></dd>
+
+  <dt>Terra:</dt>
+  <dd><%=@lands.where(id: @prescription.land).first.ha%> Ha -<%=@coltures.where(id: @lands.where(id: @prescription.land).first.id_colture).first.name%> </dd>
+
+  <dt>Note:</dt>
+  <dd><%= @prescription.note %></dd>
+
+</dl>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover" id="table">
+    <thead>
+      <tr>
+            
+            <th>Prodotto</th>
+            <th>Dose per Ha (gr)</th>
+            <th></th>
+       
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @rows) do |prescription_row| %>
+            
+            <td><%= @products.where(id: prescription_row.id_product).first.nome %></td>
+            <td><%= prescription_row.dose_per_ha %></td>
+        <td><%= link_to 'Elimina', prescription_row, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<script>
+  $('#table').DataTable({
+
+});
+</script>
+<h1> Inserisci prodotto</h1>
+<form class="form-horizontal" role="form" id="new_prescription_row" action="/prescription_rows" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="qVuGzrXC99MOKyxQJwg0sWKuy09FwCf6/uqfZg1KGhgyCzCoRPzwrGggo1Qa6vrKpYaGfOpaRKUW8DnmfYM4uA==">
+
+ 
+  <input class="form-control" type="hidden" name="prescription_row[id_prescription]" id="prescription_row_id_prescription" value="<%=@prescription.id%>">
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="prescription_row_id_product">Prodotto</label>
+    <div class="col-sm-10">
+      <select class="selectpicker" data-live-search="true" name="prescription_row[id_product]" id="prescription_row_id_product">
+         <%= @products.each do |f|%>
+         <% if @dosemax.empty?%>
+            <option value="<%= f.id%>"><%=f.nome%> - nessuna specifica</option>
+          <%else%>
+            <option value="<%= f.id%>"><%=f.nome%> - dose massima: <%=@dosemax.where(id_product: f.id).first.max_gr_ha %> gr/Ha</option>
+          <%end%>
+        <%end%>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="prescription_row_dose_per_ha">Dose per ha (gr) </label>
+    <div class="col-sm-10">
+      <input class="form-control" type="text" name="prescription_row[dose_per_ha]" id="prescription_row_dose_per_ha">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" name="commit" value="Create Prescription row" class="btn btn-primary">
+    </div>
+  </div>
+</form>
+<script>
+ 
+$('.selectpicker').selectpicker('refresh');
+</script>

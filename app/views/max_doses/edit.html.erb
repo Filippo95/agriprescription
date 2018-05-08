@@ -1,0 +1,13 @@
+<div class="page-header">
+  <%= link_to max_doses_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Indietro
+  <% end %>
+  <%= link_to @max_dose, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Visualizza
+  <% end %>
+  <h1>Modifica Dose Massima</h1>
+</div>
+
+<%= render 'form' %>

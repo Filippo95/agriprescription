@@ -1,0 +1,38 @@
+<div class="page-header">
+  <%= link_to new_max_dose_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Nuova Dose Massima
+  <% end %>
+  <h1> Dosi Massime</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover"  id="table">
+    <thead>
+      <tr>
+            <th>Prodotto</th>
+            <th>Coltura</th>
+            <th>Max gr per Ha</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @max_doses) do |max_dose| %>
+            <td><%= @products.where(id: max_dose.id_product).first.nome %></td>
+            <td><%= @coltures.where(id: max_dose.id_colture).first.name %></td>
+            <td><%= max_dose.max_gr_ha %></td>
+            <td><%= link_to 'Visualizza', max_dose %></td>
+        <td><%= link_to 'Modifica', edit_max_dose_path(max_dose) %></td>
+        <td><%= link_to 'Elimina', max_dose, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<script>
+  $('#table').DataTable({
+
+});
+</script>
