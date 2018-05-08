@@ -1,5 +1,5 @@
 <div class="page-header">
-   <%= link_to edit_prescription_path(@prescription), class: 'btn btn-default' do %>
+   <%= link_to prescription_path(@prescription,:format => :pdf), class: 'btn btn-default', target: "_blank" do %>
     <span class="glyphicon glyphicon-cloud-download"></span>
     PDF
   <% end %>

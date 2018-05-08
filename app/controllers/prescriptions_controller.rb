@@ -21,6 +21,12 @@ class PrescriptionsController < ApplicationController
     @rows=PrescriptionRow.where("id_prescription=?",@prescription.id)
     @products=Product.where("id<?",10000000000)
     @dosemax=MaxDose.where("id_colture=?",@lands.where(id: @prescription.land).first.id_colture)
+     respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "ricetta", :layout => 'pdf.html.erb',:template=>"prescriptions/pdf.html.erb" 
+      end
+    end
   end
 
   # GET /prescriptions/new
