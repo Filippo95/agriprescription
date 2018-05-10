@@ -28,6 +28,12 @@ class PrescriptionsController < ApplicationController
       end
     end
   end
+  
+  # GET /prescriptions/sendpdf/1
+  def sendpdf
+    @prescription = Prescription.find(params[:id])
+    SendPdf.sendprescription(@prescription).deliver_now
+  end
 
   # GET /prescriptions/new
   def new

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  get '/prescriptions/sendpdf/:id', to: 'prescriptions#sendpdf', as: :prescriptionsendpdf
   resources :prescriptions
   resources :companies
   resources :prescriptions
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   resources :prescriptions
   resources :lands
   resources :companies
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

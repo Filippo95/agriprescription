@@ -1,0 +1,31 @@
+<h1> Ricetta </h1>
+</div>
+<pre> 
+Date:      <%= @prescription.date %>
+
+Azienda:   <%=@company.name %>
+
+Terra:     <%=@lands.where(id: @prescription.land).first.ha%> Ha -<%=@coltures.where(id: @lands.where(id: @prescription.land).first.id_colture).first.name%> 
+
+Note:      <%= @prescription.note %>
+</pre>
+<br><br>
+  <table>
+    <thead>
+      <tr>
+            
+            <th>Prodotto</th>
+            <th >Dose </th>
+            
+       
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @rows) do |prescription_row| %>
+            
+            <td><%= @products.where(id: prescription_row.id_product).first.nome %></td>
+            <td><%= prescription_row.dose_per_ha %>gr/Ha</td>
+      <% end %>
+    </tbody>
+  </table>
