@@ -54,8 +54,10 @@ class PrescriptionsController < ApplicationController
   # POST /prescriptions
   # POST /prescriptions.json
   def create
+    @lands=Land.where("id<?",10000000000)
+    
     @prescription = Prescription.new(prescription_params)
-
+    @prescription.id_company=@lands.where(id: @prescription.land).first.id_company
     respond_to do |format|
       if @prescription.save
         format.html { redirect_to @prescription, notice: 'Prescription was successfully created.' }

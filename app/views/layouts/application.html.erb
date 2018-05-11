@@ -51,6 +51,13 @@
           <li><a href="/products">Prodotti</a></li>
           <li><a href="/max_doses">Dosi Massime</a></li>
           <li><a href="/suppliers">Fornitori</a></li>
+              <li>
+      <% if user_signed_in? %>
+        <li>  <%= link_to('Logout', destroy_user_session_path, method: :delete,class: "nav-link") %>  </li>
+        <% else %>
+        <li>  <%= link_to('Login', new_user_session_path, class:"nav-link")  %>    </li>
+      <% end %>
+    </li>
         </ul>
       </div>
     </div>

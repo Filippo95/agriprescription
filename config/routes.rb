@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  devise_for :users, :controllers => { :registrations => "registrations" }
+  root to: 'prescriptions#index', as: :authenticated_root
+
+root to: redirect('/users/sign_in')
   get '/prescriptions/sendpdf/:id', to: 'prescriptions#sendpdf', as: :prescriptionsendpdf
   resources :prescriptions
   resources :companies

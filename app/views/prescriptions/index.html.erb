@@ -21,7 +21,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @prescriptions) do |prescription| %>
-            <td><%= prescription.date %></td>
+            <td><%= prescription.date.strftime("%d/%m/%Y") %></td>
             <td><%= @companies.where(id: prescription.id_company).first.name %></td>
             <td><%= @lands.where(id: prescription.land).first.ha %>-<%= @coltures.where(id: @lands.where(id: prescription.land).first.id_colture).first.name %></td>
             <td><%= link_to 'Visualizza', prescription %></td>

@@ -18,16 +18,7 @@
       <%= f.date_select :date, class: "form-control" %>
     </div>
   </div>
-  <div class="form-group">
-    <%= f.label :id_company, class: "col-sm-2 control-label" %>
-    <div class="col-sm-10">
-      <select class="selectpicker" data-live-search="true" name="prescription[id_company]" id="prescription_id_company">
-         <%= @companies.each do |f|%>
-          <option value="<%= f.id%>"><%=f.name%></option>
-          <%end%>
-      </select>
-    </div>
-  </div>
+  
   <div class="form-group">
     <%= f.label :land, class: "col-sm-2 control-label" %>
     <div class="col-sm-10">

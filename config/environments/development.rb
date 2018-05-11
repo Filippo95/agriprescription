@@ -21,7 +21,7 @@ config.action_mailer.smtp_settings = {
   :port                 => 587,
   :domain               => 'baci.lindsaar.net',
   :user_name            => 'filippo.luppi@gmail.com',
-  :password             => 'Slash1995',
+  :password             => '',
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 
