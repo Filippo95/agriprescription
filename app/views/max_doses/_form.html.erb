@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :id_product, class: "col-sm-2 control-label" %>
+    <%= f.label :id_product,"Prodotto: ", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       
        <select class="selectpicker" data-live-search="true" name="max_dose[id_product]" id="max_dose_id_product">
@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :id_colture, class: "col-sm-2 control-label" %>
+    <%= f.label :id_colture, "Coltura: ",class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
      
       <select class="selectpicker" data-live-search="true" name="max_dose[id_colture]" id="max_dose_id_colture">
@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :max_gr_ha, class: "col-sm-2 control-label" %>
+    <%= f.label :max_gr_ha, "Max Kg/Ha: ",class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_field :max_gr_ha, class: "form-control" %>
     </div>

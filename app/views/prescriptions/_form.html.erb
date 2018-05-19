@@ -13,14 +13,14 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :date, class: "col-sm-2 control-label" %>
+    <%= f.label :date,"Data: ", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.date_select :date, class: "form-control" %>
     </div>
   </div>
   
   <div class="form-group">
-    <%= f.label :land, class: "col-sm-2 control-label" %>
+    <%= f.label :land, "Terra: ",class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
        <select class="selectpicker" data-live-search="true" name="prescription[land]" id="prescription_land">
          <%= @lands.each do |f|%>
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :note, class: "col-sm-2 control-label" %>
+    <%= f.label :note,"Note: ", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%= f.text_area :note, class: "form-control" %>
     </div>
